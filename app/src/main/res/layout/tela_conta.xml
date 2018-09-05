@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Aplicativo.TelaConta">
+
+
+    <TextView
+        android:id="@+id/txtAtualizarDados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Atualizar Dados"
+        android:textAlignment="gravity"
+        android:textSize="30sp" />
+
+
+    <TextView
+        android:id="@+id/txtAtualizarSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/txtAtualizarDados"
+        android:gravity="left"
+        android:text="Atualizar Senha"
+        android:textAlignment="gravity"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/editEmailAtualizarSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/txtAtualizarSenha"
+        android:ems="@android:integer/config_longAnimTime"
+        android:hint="E-mail Atual"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/editSenhaAtualizar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/editEmailAtualizarSenha"
+        android:ems="@android:integer/config_longAnimTime"
+        android:hint="Senha Atual"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/editSenhaAtualizarSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/editSenhaAtualizar"
+        android:ems="@android:integer/config_longAnimTime"
+        android:hint="Nova Senha"
+        android:inputType="textPassword" />
+    <EditText
+        android:id="@+id/editSenhaAtualizarSenha1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/editSenhaAtualizarSenha"
+        android:ems="@android:integer/config_longAnimTime"
+        android:hint="Confirmar Nova Senha"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btnAtualizarSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editSenhaAtualizarSenha1"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="Atualizar Senha"
+        android:textAlignment="gravity" />
+
+
+</android.widget.RelativeLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.appfut03">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Aplicativo.TelaInicial">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Aplicativo.TelaMenu" />
+        <activity android:name=".Aplicativo.TelaCadastro" />
+        <activity android:name=".Aplicativo.TelaLogin" />
+        <activity android:name=".Aplicativo.TelaConta" />
+        <activity android:name=".Aplicativo.TelaPartida" />
+        <activity android:name=".Aplicativo.TelaCampeonato" />
+        <activity android:name=".Aplicativo.TelaHistorico" />
+        <activity android:name=".Aplicativo.TelaTimes" />
+        <activity android:name=".Aplicativo.TelaEsqueciMinhaSenha" />
+        <activity android:name=".Aplicativo.TelaEmailConfirmacao"></activity>
+    </application>
+
+</manifest>

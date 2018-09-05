@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Aplicativo.TelaMenu">
+
+
+    <TextView
+        android:id="@+id/txtMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="MENU PRINCIPAL"
+        android:textAlignment="gravity"
+        android:textSize="30sp" />
+
+
+    <Button
+        android:id="@+id/btnCriarCampeonato"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="350dp"
+        android:text="Criar campeonato"
+        android:textSize="15sp"
+        tools:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btnCriarPartida"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="300dp"
+        android:layout_gravity="center"
+        android:text="Criar partida"
+        tools:textAllCaps="false"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/btnHistorico"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="250dp"
+        android:layout_gravity="center"
+        android:text="Histórico do time"
+        tools:textAllCaps="false"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/btnListaTimes"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="200dp"
+        android:layout_gravity="center"
+        android:text="Lista de times"
+        tools:textAllCaps="false"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/btnRegras"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="150dp"
+        android:layout_gravity="center"
+        android:text="Regras oficiais"
+        tools:textAllCaps="false"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/btnConta"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
+        android:layout_gravity="center"
+        android:text="Conta"
+        tools:textAllCaps="false"
+        android:textSize="15sp" />
+
+
+
+</android.widget.RelativeLayout>

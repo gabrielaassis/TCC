@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".Aplicativo.TelaCadastro">
+
+
+<TextView
+    android:id="@+id/txtCadastro"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginTop="10dp"
+    android:gravity="center"
+    android:text="CADASTRO"
+    android:textAlignment="gravity"
+    android:textSize="30sp" />
+
+<EditText
+    android:id="@+id/editNomeCadastro"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="100dp"
+    android:ems="15"
+    android:textColor="#000"
+    android:paddingLeft="10dp"
+    android:hint="Nome"
+    android:textStyle="italic"
+    android:layout_gravity="center"
+    android:inputType="textPersonName" />
+
+<EditText
+    android:id="@+id/editEmailCadastro"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/editNomeCadastro"
+    android:layout_centerHorizontal="true"
+    android:ems="15"
+    android:hint="Email"
+    android:inputType="textPersonName"
+    android:paddingLeft="10dp"
+    android:layout_gravity="center"
+    android:textColor="#000"
+    android:textStyle="italic" />
+
+<EditText
+    android:id="@+id/editSenhaCadastro"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/editEmailCadastro"
+    android:layout_centerHorizontal="true"
+    android:ems="15"
+    android:hint="Senha"
+    android:inputType="textPassword"
+    android:paddingLeft="10dp"
+    android:layout_gravity="center"
+    android:textColor="#000"
+    android:textStyle="italic" />
+
+    <EditText
+        android:id="@+id/editSenhaCadastro1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editSenhaCadastro"
+        android:layout_centerHorizontal="true"
+        android:ems="15"
+        android:hint="Confirmar Senha"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:layout_gravity="center"
+        android:textColor="#000"
+        android:textStyle="italic" />
+
+<CheckBox
+    android:id="@+id/cbCadastro"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignStart="@+id/editNomeCadastro"
+    android:layout_below="@+id/editSenhaCadastro1"
+    android:text="Marque se for Jogador"
+    android:layout_gravity="center"
+    android:textColor="#000"
+    android:textSize="18dp" />
+
+<EditText
+    android:digits="0123456789*-qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
+    android:id="@+id/editTimeCadastro"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/cbCadastro"
+    android:layout_centerHorizontal="true"
+    android:ems="15"
+    android:hint="Nome do time"
+    android:inputType="textPersonName"
+    android:paddingLeft="10dp"
+    android:textColor="#000"
+    android:layout_gravity="center"
+    android:textStyle="italic"
+    android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnRegistrar"
+        android:layout_width="170dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="41dp"
+        android:text="Registrar"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+</android.widget.RelativeLayout>
+
