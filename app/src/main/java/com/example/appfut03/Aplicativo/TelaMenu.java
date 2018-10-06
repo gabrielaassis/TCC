@@ -66,14 +66,14 @@ public class TelaMenu extends AppCompatActivity {
             }
         });
 
-        btnRegras.setOnClickListener(new View.OnClickListener() {
+        /*btnRegras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
-        });
+        });*/
 
-        btnConta.setOnClickListener(new View.OnClickListener() {
+        btnRegras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String endereco = "http://www.cbfm.com.br/CBFM_Regras.php";
