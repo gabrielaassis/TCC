@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 
@@ -18,58 +18,93 @@
         android:gravity="center"
         android:text="Atualizar Dados"
         android:textAlignment="gravity"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.013"/>
 
 
     <TextView
         android:id="@+id/txtAtualizarSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_below="@id/txtAtualizarDados"
+        android:layout_alignParentStart="true"
         android:gravity="left"
         android:text="Atualizar Senha"
         android:textAlignment="gravity"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/txtAtualizarDados"
+        app:layout_constraintVertical_bias="0.086" />
 
     <EditText
         android:id="@+id/editEmailAtualizarSenha"
-        android:layout_width="wrap_content"
+        android:layout_width="282dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_below="@id/txtAtualizarSenha"
+        android:layout_alignParentStart="true"
         android:ems="@android:integer/config_longAnimTime"
         android:hint="E-mail Atual"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.212" />
 
     <EditText
         android:id="@+id/editSenhaAtualizar"
-        android:layout_width="wrap_content"
+        android:layout_width="282dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_below="@id/editEmailAtualizarSenha"
+        android:layout_alignParentStart="true"
         android:ems="@android:integer/config_longAnimTime"
         android:hint="Senha Atual"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/editEmailAtualizarSenha"
+        app:layout_constraintVertical_bias="0.125" />
 
     <EditText
         android:id="@+id/editSenhaAtualizarSenha"
-        android:layout_width="wrap_content"
+        android:layout_width="282dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/editSenhaAtualizar"
+        android:layout_alignParentStart="true"
         android:ems="@android:integer/config_longAnimTime"
         android:hint="Nova Senha"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/editSenhaAtualizar"
+        app:layout_constraintVertical_bias="0.143" />
+
     <EditText
         android:id="@+id/editSenhaAtualizarSenha1"
-        android:layout_width="wrap_content"
+        android:layout_width="282dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/editSenhaAtualizarSenha"
+        android:layout_alignParentStart="true"
         android:ems="@android:integer/config_longAnimTime"
         android:hint="Confirmar Nova Senha"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/editSenhaAtualizarSenha"
+        app:layout_constraintVertical_bias="0.167" />
 
     <Button
         android:id="@+id/btnAtualizarSenha"
@@ -79,7 +114,13 @@
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:text="Atualizar Senha"
-        android:textAlignment="gravity" />
+        android:textAlignment="gravity"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.755" />
 
 
-</android.widget.RelativeLayout>
+</android.support.constraint.ConstraintLayout>

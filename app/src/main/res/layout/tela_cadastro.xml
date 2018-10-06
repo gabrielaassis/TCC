@@ -1,108 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
 
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".Aplicativo.TelaCadastro">
-
-
-<TextView
-    android:id="@+id/txtCadastro"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentTop="true"
-    android:layout_marginTop="10dp"
-    android:gravity="center"
-    android:text="CADASTRO"
-    android:textAlignment="gravity"
-    android:textSize="30sp" />
+    android:layout_height="match_parent"
+    tools:context=".Aplicativo.TelaCadastro">
 
-<EditText
-    android:id="@+id/editNomeCadastro"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentTop="true"
-    android:layout_centerHorizontal="true"
-    android:layout_marginTop="100dp"
-    android:ems="15"
-    android:textColor="#000"
-    android:paddingLeft="10dp"
-    android:hint="Nome"
-    android:textStyle="italic"
-    android:layout_gravity="center"
-    android:inputType="textPersonName" />
 
-<EditText
-    android:id="@+id/editEmailCadastro"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@+id/editNomeCadastro"
-    android:layout_centerHorizontal="true"
-    android:ems="15"
-    android:hint="Email"
-    android:inputType="textPersonName"
-    android:paddingLeft="10dp"
-    android:layout_gravity="center"
-    android:textColor="#000"
-    android:textStyle="italic" />
+    <TextView
+        android:id="@+id/txtCadastro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:text="CADASTRO"
+        android:textAlignment="gravity"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.013" />
 
-<EditText
-    android:id="@+id/editSenhaCadastro"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@+id/editEmailCadastro"
-    android:layout_centerHorizontal="true"
-    android:ems="15"
-    android:hint="Senha"
-    android:inputType="textPassword"
-    android:paddingLeft="10dp"
-    android:layout_gravity="center"
-    android:textColor="#000"
-    android:textStyle="italic" />
+    <EditText
+        android:id="@+id/editNomeCadastro"
+        android:layout_width="282dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:ems="15"
+        android:hint="Nome"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:textColor="#000"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.174" />
+
+    <EditText
+        android:id="@+id/editEmailCadastro"
+        android:layout_width="282dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editNomeCadastro"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        android:ems="15"
+        android:hint="Email"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:textColor="#000"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/editNomeCadastro"
+        app:layout_constraintVertical_bias="0.118" />
+
+    <EditText
+        android:id="@+id/editSenhaCadastro"
+        android:layout_width="282dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editEmailCadastro"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:ems="15"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:textColor="#000"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/editEmailCadastro"
+        app:layout_constraintVertical_bias="0.136" />
 
     <EditText
         android:id="@+id/editSenhaCadastro1"
-        android:layout_width="wrap_content"
+        android:layout_width="282dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editSenhaCadastro"
         android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
         android:ems="15"
         android:hint="Confirmar Senha"
         android:inputType="textPassword"
         android:paddingLeft="10dp"
-        android:layout_gravity="center"
         android:textColor="#000"
-        android:textStyle="italic" />
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/editSenhaCadastro"
+        app:layout_constraintVertical_bias="0.156" />
 
-<CheckBox
-    android:id="@+id/cbCadastro"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignStart="@+id/editNomeCadastro"
-    android:layout_below="@+id/editSenhaCadastro1"
-    android:text="Marque se for Jogador"
-    android:layout_gravity="center"
-    android:textColor="#000"
-    android:textSize="18dp" />
+    <CheckBox
+        android:id="@+id/cbCadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editSenhaCadastro1"
+        android:layout_alignStart="@+id/editNomeCadastro"
+        android:layout_gravity="center"
+        android:text="Marque se for Jogador"
+        android:textColor="#000"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.184"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.586" />
 
-<EditText
-    android:digits="0123456789*-qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
-    android:id="@+id/editTimeCadastro"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@+id/cbCadastro"
-    android:layout_centerHorizontal="true"
-    android:ems="15"
-    android:hint="Nome do time"
-    android:inputType="textPersonName"
-    android:paddingLeft="10dp"
-    android:textColor="#000"
-    android:layout_gravity="center"
-    android:textStyle="italic"
-    android:visibility="gone" />
+    <EditText
+        android:id="@+id/editTimeCadastro"
+        android:layout_width="282dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cbCadastro"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:digits="0123456789*-qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
+        android:ems="15"
+        android:hint="Nome do time"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:textColor="#000"
+        android:textStyle="italic"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/cbCadastro"
+        app:layout_constraintVertical_bias="0.684" />
 
     <Button
         android:id="@+id/btnRegistrar"
@@ -111,11 +153,19 @@ tools:context=".Aplicativo.TelaCadastro">
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginBottom="41dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="50dp"
         android:text="Registrar"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.946" />
 
 
-</android.widget.RelativeLayout>
+</android.support.constraint.ConstraintLayout>
 
