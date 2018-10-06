@@ -66,13 +66,6 @@ public class TelaMenu extends AppCompatActivity {
             }
         });
 
-        /*btnRegras.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });*/
-
         btnRegras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
