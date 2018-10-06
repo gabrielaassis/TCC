@@ -23,10 +23,10 @@ import org.w3c.dom.Text;
 
 public class TelaHistorico extends AppCompatActivity {
 
-    private TextView txtVitorias, txtDerrotas,txtEmpates, txtHistorico;
+    private TextView txtVitorias, txtDerrotas,txtEmpates, txtHistorico,txtNomeTime;
     private FirebaseAuth autentic;
     private ProgressBar loading;
-    private String vitorias,derrotas,empates;
+    private String vitorias,derrotas,empates,time;
     private DatabaseReference fbconfig;
 
     @Override
@@ -39,11 +39,13 @@ public class TelaHistorico extends AppCompatActivity {
         txtEmpates = (TextView)findViewById(R.id.txtEmpates);
         txtHistorico = (TextView)findViewById(R.id.txtHistorico);
         loading = (ProgressBar)findViewById(R.id.BolinhaLoad);
+        txtNomeTime = (TextView)findViewById(R.id.txtNomeTime);
 
         txtHistorico.setVisibility(View.INVISIBLE);
         txtDerrotas.setVisibility(View.INVISIBLE);
         txtEmpates.setVisibility(View.INVISIBLE);
         txtVitorias.setVisibility(View.INVISIBLE);
+        txtNomeTime.setVisibility(View.INVISIBLE);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -61,15 +63,18 @@ public class TelaHistorico extends AppCompatActivity {
                     vitorias =  messageSnapshot.child("vitorias").getValue().toString();
                     derrotas =  messageSnapshot.child("derrotas").getValue().toString();
                     empates =  messageSnapshot.child("empates").getValue().toString();
+                    time = messageSnapshot.child("time").getValue().toString();
                 }
 
                 //fbconfig.child("Usuários").child(message).child("senha").setValue(identificadorUsuario);
                 txtVitorias.setText("Vitórias: "+ vitorias);
                 txtDerrotas.setText("Derrotas: "+ derrotas);
                 txtEmpates.setText("Empates: "+ empates);
+                txtNomeTime.setText(time);
                 txtHistorico.setVisibility(View.VISIBLE);
                 txtDerrotas.setVisibility(View.VISIBLE);
                 txtEmpates.setVisibility(View.VISIBLE);
+                txtNomeTime.setVisibility(View.VISIBLE);
                 txtVitorias.setVisibility(View.VISIBLE);
                 loading.setVisibility(View.INVISIBLE);
             }
