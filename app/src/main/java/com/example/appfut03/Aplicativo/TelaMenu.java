@@ -2,6 +2,7 @@ package com.example.appfut03.Aplicativo;
 
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -71,6 +72,19 @@ public class TelaMenu extends AppCompatActivity {
 
             }
         });
+
+        btnConta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String endereco = "http://www.cbfm.com.br/CBFM_Regras.php";
+                Uri uri = Uri.parse(endereco);
+
+                Intent regrr = new Intent(Intent.ACTION_VIEW, uri);
+
+                startActivity(regrr);
+            }
+        });
+
 
         btnConta.setOnClickListener(new View.OnClickListener() {
             @Override
