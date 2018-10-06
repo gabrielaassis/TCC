@@ -23,7 +23,7 @@ import org.w3c.dom.Text;
 
 public class TelaHistorico extends AppCompatActivity {
 
-    private TextView txtVitorias, txtDerrotas,txtEmpates, txtHistorico,txtNomeTime;
+    private TextView txtVitorias, txtDerrotas,txtEmpates, txtHistorico,txtNomeTime,txtVisitanteHistorico;
     private FirebaseAuth autentic;
     private ProgressBar loading;
     private String vitorias,derrotas,empates,time;
@@ -40,12 +40,14 @@ public class TelaHistorico extends AppCompatActivity {
         txtHistorico = (TextView)findViewById(R.id.txtHistorico);
         loading = (ProgressBar)findViewById(R.id.BolinhaLoad);
         txtNomeTime = (TextView)findViewById(R.id.txtNomeTime);
+        txtVisitanteHistorico = (TextView)findViewById(R.id.txtVisitanteHistorico);
 
         txtHistorico.setVisibility(View.INVISIBLE);
         txtDerrotas.setVisibility(View.INVISIBLE);
         txtEmpates.setVisibility(View.INVISIBLE);
         txtVitorias.setVisibility(View.INVISIBLE);
         txtNomeTime.setVisibility(View.INVISIBLE);
+        txtVisitanteHistorico.setVisibility(View.INVISIBLE);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -67,16 +69,25 @@ public class TelaHistorico extends AppCompatActivity {
                 }
 
                 //fbconfig.child("Usuários").child(message).child("senha").setValue(identificadorUsuario);
-                txtVitorias.setText("Vitórias: "+ vitorias);
-                txtDerrotas.setText("Derrotas: "+ derrotas);
-                txtEmpates.setText("Empates: "+ empates);
-                txtNomeTime.setText(time);
                 txtHistorico.setVisibility(View.VISIBLE);
-                txtDerrotas.setVisibility(View.VISIBLE);
-                txtEmpates.setVisibility(View.VISIBLE);
-                txtNomeTime.setVisibility(View.VISIBLE);
-                txtVitorias.setVisibility(View.VISIBLE);
-                loading.setVisibility(View.INVISIBLE);
+                txtNomeTime.setText(time);
+                if(time.equals("Visitante")){
+
+                    loading.setVisibility(View.INVISIBLE);
+                    txtVisitanteHistorico.setVisibility(View.VISIBLE);
+                } else {
+
+                    txtVitorias.setText("Vitórias: " + vitorias);
+                    txtDerrotas.setText("Derrotas: " + derrotas);
+                    txtEmpates.setText("Empates: " + empates);
+                    txtNomeTime.setText(time);
+
+                    txtDerrotas.setVisibility(View.VISIBLE);
+                    txtEmpates.setVisibility(View.VISIBLE);
+                    txtNomeTime.setVisibility(View.VISIBLE);
+                    txtVitorias.setVisibility(View.VISIBLE);
+                    loading.setVisibility(View.INVISIBLE);
+                }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
