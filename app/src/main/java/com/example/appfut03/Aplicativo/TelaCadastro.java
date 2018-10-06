@@ -58,6 +58,7 @@ public class TelaCadastro extends AppCompatActivity {
         editSenhaCadastro1 = (EditText) findViewById(R.id.editSenhaCadastro1);
 
 
+
         cbCadastro.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -78,6 +79,11 @@ public class TelaCadastro extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(editSenhaCadastro.getText().toString().equals(editSenhaCadastro1.getText().toString())){
+                    editTime = editTimeCadastro.getText().toString();
+
+                    if(editTime.isEmpty() == true){
+                        editTimeCadastro.setText("Visitante");
+                    }
 
                     usuarios = new Usuarios();
                     usuarios.setNome(editNomeCadastro.getText().toString());
@@ -105,10 +111,10 @@ public class TelaCadastro extends AppCompatActivity {
         fbconfig.child("TimesRegistrados").child(editTimeCadastro.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                editTime = editTimeCadastro.getText().toString();
+
 
                 //Toast.makeText(TelaCadastro.this, dataSnapshot.toString(), Toast.LENGTH_LONG).show();
-                if(dataSnapshot.getValue() == null || editTime.isEmpty() == true) {
+                if(dataSnapshot.getValue() == null || dataSnapshot.getValue() == "Visitante" || editTime.isEmpty() == true) {
 
 
 
@@ -172,7 +178,7 @@ public class TelaCadastro extends AppCompatActivity {
 
                 } else {
                     //editEmailCadastro.setText(dataSnapshot.toString());
-                    editNomeCadastro.setText(editTimeCadastro.getText().toString());
+                    //editNomeCadastro.setText(editTimeCadastro.getText().toString());
                     Toast.makeText(TelaCadastro.this, "Time Ja Existente", Toast.LENGTH_LONG).show();
                     //editTimeCadastro.setText(editEmail);
                     //editTimeCadastro.setText("");
