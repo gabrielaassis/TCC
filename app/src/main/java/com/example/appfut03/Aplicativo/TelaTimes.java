@@ -4,8 +4,10 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.example.appfut03.Configuracoes.Firebaseconfig;
 import com.example.appfut03.R;
@@ -23,6 +25,7 @@ public class TelaTimes extends AppCompatActivity {
     private DatabaseReference fbconfig;
     private ArrayList<String> ltimes = new ArrayList<>();
     private ArrayAdapter<String> arrayAdapter;
+    private ProgressBar BolinhaLoadTelaTimes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,7 @@ public class TelaTimes extends AppCompatActivity {
         setContentView(R.layout.tela_times);
 
         LVtimes1 = (ListView) findViewById(R.id.LVtimes1);
+        BolinhaLoadTelaTimes = (ProgressBar) findViewById(R.id.BolinhaLoadTelaTimes);
 
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, ltimes);
         LVtimes1.setAdapter(arrayAdapter);
@@ -41,6 +45,7 @@ public class TelaTimes extends AppCompatActivity {
                 String string = dataSnapshot.getValue(String.class);
                 arrayAdapter.add(string);
                 arrayAdapter.notifyDataSetChanged();
+                BolinhaLoadTelaTimes.setVisibility(View.INVISIBLE);
             }
 
             @Override

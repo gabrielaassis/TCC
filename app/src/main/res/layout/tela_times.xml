@@ -20,6 +20,8 @@
         android:textAlignment="gravity"
         android:textSize="30sp" />
 
+
+
     <ListView
         android:id="@+id/LVtimes1"
         android:layout_width="match_parent"
@@ -27,6 +29,15 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="81dp" />
+
+    <ProgressBar
+        android:id="@+id/BolinhaLoadTelaTimes"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/LVtimes1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-254dp" />
 
 
 </android.widget.RelativeLayout>
