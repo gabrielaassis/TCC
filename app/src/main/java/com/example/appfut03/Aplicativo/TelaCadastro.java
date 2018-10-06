@@ -175,7 +175,7 @@ public class TelaCadastro extends AppCompatActivity {
                     editNomeCadastro.setText(editTimeCadastro.getText().toString());
                     Toast.makeText(TelaCadastro.this, "Time Ja Existente", Toast.LENGTH_LONG).show();
                     //editTimeCadastro.setText(editEmail);
-                    // editTimeCadastro.setText("");
+                    //editTimeCadastro.setText("");
                 }
             }
 
