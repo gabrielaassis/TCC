@@ -41,6 +41,7 @@ public class TelaCadastro extends AppCompatActivity {
     private FirebaseAuth autentic;
     private DatabaseReference fbconfig;
     private int teste;
+    private String editTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,7 @@ public class TelaCadastro extends AppCompatActivity {
         btnRegistrar = (Button) findViewById(R.id.btnRegistrar);
         editTimeCadastro = (EditText) findViewById(R.id.editTimeCadastro);
         editSenhaCadastro1 = (EditText) findViewById(R.id.editSenhaCadastro1);
+
 
         cbCadastro.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -77,13 +79,14 @@ public class TelaCadastro extends AppCompatActivity {
             public void onClick(View v) {
                 if(editSenhaCadastro.getText().toString().equals(editSenhaCadastro1.getText().toString())){
 
-
                     usuarios = new Usuarios();
                     usuarios.setNome(editNomeCadastro.getText().toString());
                     usuarios.setEmail(editEmailCadastro.getText().toString());
                     usuarios.setSenha(editSenhaCadastro.getText().toString());
                     usuarios.setTime(editTimeCadastro.getText().toString());
+
                     cadastrarUsuario();
+
                 }else{
                     Toast.makeText(TelaCadastro.this, "As senhas não são correspondentes", Toast.LENGTH_LONG).show();
 
@@ -92,10 +95,24 @@ public class TelaCadastro extends AppCompatActivity {
         });
     }
 
+
     private void cadastrarUsuario(){
 
         fbconfig = Firebaseconfig.getFirebaseConfig();
         autentic = Firebaseconfig.getFirebaseAutentic();
+
+
+        fbconfig.child("TimesRegistrados").child(editTimeCadastro.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                editTime = editTimeCadastro.getText().toString();
+
+                //Toast.makeText(TelaCadastro.this, dataSnapshot.toString(), Toast.LENGTH_LONG).show();
+                if(dataSnapshot.getValue() == null || editTime.isEmpty() == true) {
+
+
+
+
                     autentic.createUserWithEmailAndPassword(
                             usuarios.getEmail(),
                             usuarios.getSenha()
@@ -104,8 +121,9 @@ public class TelaCadastro extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
                                 Toast.makeText(TelaCadastro.this, "Usuário cadastrado com sucesso", Toast.LENGTH_LONG).show();
+
                                 final String identificadorUsuario = Base64Custom.codificarBase64(usuarios.getSenha());
-                                String identUser1 = Base64Custom.codificarBase64((usuarios.getEmail()));
+
                                 FirebaseUser usuarioFirebase = task.getResult().getUser();
                                 DatabaseReference refenciaFirebase = Firebaseconfig.getFirebaseConfig();
                                 refenciaFirebase.child("Contador Users").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -116,14 +134,18 @@ public class TelaCadastro extends AppCompatActivity {
                                         usuarios.setSenha(identificadorUsuario);
                                         usuarios.salvar();
                                     }
+
                                     @Override
                                     public void onCancelled(@NonNull DatabaseError databaseError) {
+
                                     }
                                 });
 
+
                                 Preferencias preferencias = new Preferencias(TelaCadastro.this);
-                                preferencias.salvarUsuarioPreferences(identUser1, usuarios.getNome());
+                                preferencias.salvarUsuarioPreferences(identificadorUsuario, usuarios.getNome());
                                 abrirLoginUsuario();
+
 
                             }else{
                                 String erroExcecao ="";
@@ -143,9 +165,27 @@ public class TelaCadastro extends AppCompatActivity {
                                     e.printStackTrace();
                                 }
                                 Toast.makeText(TelaCadastro.this, "Erro" + erroExcecao, Toast.LENGTH_LONG).show();
+
                             }
                         }
                     });
+
+                } else {
+                    //editEmailCadastro.setText(dataSnapshot.toString());
+                    editNomeCadastro.setText(editTimeCadastro.getText().toString());
+                    Toast.makeText(TelaCadastro.this, "Time Ja Existente", Toast.LENGTH_LONG).show();
+                    //editTimeCadastro.setText(editEmail);
+                    // editTimeCadastro.setText("");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+
+            }
+        });
+
 
     }
 
