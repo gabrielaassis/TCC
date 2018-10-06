@@ -8,6 +8,15 @@
     tools:context=".Aplicativo.TelaHistorico">
 
 
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/BolinhaLoad"
+        android:layout_alignTop="@+id/txtDerrotas"
+        android:layout_centerHorizontal="true"
+        android:indeterminate="true" />
+
+
     <TextView
         android:id="@+id/txtHistorico"
         android:layout_width="match_parent"
@@ -18,8 +27,45 @@
         android:gravity="center"
         android:text="Histórico"
         android:textAlignment="gravity"
-        android:textSize="30sp" />
+        android:textColor="#000"
+        android:textSize="40dp" />
 
+    <TextView
+        android:id="@+id/txtVitorias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/txtHistorico"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="97dp"
+        android:text="Vitórias: x"
+        android:textColor="#00F"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/txtEmpates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/txtVitorias"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="167dp"
+        android:text="Empates: x"
+        android:textColor="#008000"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/txtDerrotas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/txtEmpates"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="233dp"
+        android:text="Derrotas: x"
+        android:textColor="#f00"
+        android:textSize="25dp" />
 
 
 </android.widget.RelativeLayout>
