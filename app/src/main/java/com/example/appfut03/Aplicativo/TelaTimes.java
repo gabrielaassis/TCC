@@ -43,9 +43,13 @@ public class TelaTimes extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 String string = dataSnapshot.getValue(String.class);
-                arrayAdapter.add(string);
-                arrayAdapter.notifyDataSetChanged();
-                BolinhaLoadTelaTimes.setVisibility(View.INVISIBLE);
+                if(string.equals("Visitante")){
+
+                }else {
+                    arrayAdapter.add(string);
+                    arrayAdapter.notifyDataSetChanged();
+                    BolinhaLoadTelaTimes.setVisibility(View.INVISIBLE);
+                }
             }
 
             @Override
