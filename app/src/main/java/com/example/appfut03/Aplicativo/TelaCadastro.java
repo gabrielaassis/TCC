@@ -90,6 +90,9 @@ public class TelaCadastro extends AppCompatActivity {
                     usuarios.setEmail(editEmailCadastro.getText().toString());
                     usuarios.setSenha(editSenhaCadastro.getText().toString());
                     usuarios.setTime(editTimeCadastro.getText().toString());
+                    usuarios.setVitorias("0");
+                    usuarios.setDerrotas("0");
+                    usuarios.setEmpates("0");
 
                     cadastrarUsuario();
 

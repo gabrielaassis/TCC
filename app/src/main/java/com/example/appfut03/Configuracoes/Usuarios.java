@@ -17,6 +17,9 @@ public class Usuarios {
     private String email;
     private String senha;
     private String time;
+    private String vitorias;
+    private String derrotas;
+    private String empates;
 
     public Usuarios() {
     }
@@ -48,6 +51,9 @@ public class Usuarios {
         hashMapUsuario.put("email",getEmail());
         hashMapUsuario.put("senha",getSenha());
         hashMapUsuario.put("time",getTime());
+        hashMapUsuario.put("vitorias", getVitorias());
+        hashMapUsuario.put("derrotas", getDerrotas());
+        hashMapUsuario.put("empates", getEmpates());
         return hashMapUsuario;
     }
 
@@ -90,5 +96,29 @@ public class Usuarios {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getVitorias() {
+        return vitorias;
+    }
+
+    public void setVitorias(String vitorias) {
+        this.vitorias = vitorias;
+    }
+
+    public String getDerrotas() {
+        return derrotas;
+    }
+
+    public void setDerrotas(String derrotas) {
+        this.derrotas = derrotas;
+    }
+
+    public String getEmpates() {
+        return empates;
+    }
+
+    public void setEmpates(String empates) {
+        this.empates = empates;
     }
 }
