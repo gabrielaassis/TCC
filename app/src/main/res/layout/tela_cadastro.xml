@@ -140,7 +140,7 @@
         android:paddingLeft="10dp"
         android:textColor="#000"
         android:textStyle="italic"
-
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
