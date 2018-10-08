@@ -133,7 +133,7 @@
         android:layout_below="@+id/cbCadastro"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:digits="0123456789*-qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
+        android:digits="0123456789* -qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
         android:ems="15"
         android:hint="Nome do time"
         android:inputType="textPersonName"
