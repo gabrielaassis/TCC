@@ -36,6 +36,7 @@ public class TelaPartida extends AppCompatActivity {
         setContentView(R.layout.tela_partida);
 
         txtSuaEquipe = (TextView) findViewById(R.id.txtSuaEquipe);
+        spinner = (Spinner) findViewById(R.id.spinner);
 
 
         fbconfig = Firebaseconfig.getFirebaseConfig();
@@ -59,7 +60,33 @@ public class TelaPartida extends AppCompatActivity {
 
             }
         });
+        final List<String> list = new ArrayList<String>();
 
+        final Query ListarTime = fbconfig.child("TimesRegistrados");
+        ListarTime.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot messageSnapshot: dataSnapshot.getChildren()){
+                    String times = (String) messageSnapshot.getValue().toString();
+                    list.add(times);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, list);
+        spinner.setAdapter(adapter);
+
+
+
+/*
         List<String> list = new ArrayList<String>();
         final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, list);
         spinner.setAdapter(adapter);
@@ -97,7 +124,7 @@ public class TelaPartida extends AppCompatActivity {
 
             }
         });
-
+*/
         }
 
     }
