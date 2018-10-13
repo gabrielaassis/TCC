@@ -25,13 +25,13 @@ public class Partidas {
 
     public void salvar(){
         final DatabaseReference referenciaFirebase = Firebaseconfig.getFirebaseConfig();
-        referenciaFirebase.child("Contador Users Partida").addListenerForSingleValueEvent(new ValueEventListener() {
+        referenciaFirebase.child("Contador Partida").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 id1=(Integer.parseInt(String.valueOf(dataSnapshot.getValue())));
-                referenciaFirebase.child("Contador Users1 Partida").setValue(id1);
+                referenciaFirebase.child("Contador Partida1").setValue(id1);
                 id = id1+1;
-                referenciaFirebase.child("Contador Users Partida").setValue(id);
+                referenciaFirebase.child("Contador Partida").setValue(id);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -49,7 +49,7 @@ public class Partidas {
         hashMapPartida.put("nome_time_2",getNomeTime2());
         hashMapPartida.put("gols_time_1",getGolsTime1());
         hashMapPartida.put("gols_time_2",getGolsTime2());
-        hashMapPartida.put("juiz",getJuizPartida());
+       // hashMapPartida.put("juiz",getJuizPartida());
         hashMapPartida.put("data",getDataPartida());
 
         return hashMapPartida;
