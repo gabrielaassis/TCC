@@ -133,7 +133,7 @@
         android:layout_below="@+id/cbCadastro"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:digits="0123456789*-qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
+        android:digits="0123456789* -qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
         android:ems="15"
         android:hint="Nome do time"
         android:inputType="textPersonName"
@@ -143,10 +143,9 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/cbCadastro"
-        app:layout_constraintVertical_bias="0.684" />
+        app:layout_constraintTop_toBottomOf="@id/cbCadastro"
+        app:layout_constraintVertical_bias="0.009" />
 
     <Button
         android:id="@+id/btnRegistrar"
