@@ -59,6 +59,11 @@ public class TelaPartida extends AppCompatActivity {
 
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+        List<String> list = new ArrayList<String>();
+        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, list);
+        spinner.setAdapter(adapter);
+
+
         final Query acharUsuario = fbconfig.child("Usuários").orderByChild("email").equalTo(user.getEmail());
         acharUsuario.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -66,6 +71,8 @@ public class TelaPartida extends AppCompatActivity {
                 for (DataSnapshot messageSnapshot: dataSnapshot.getChildren()) {
                    String message = (String) messageSnapshot.child("time").getValue().toString();
                     txtSuaEquipe.setText(message);
+                    adapter.remove(message);
+
                 }
 
             }
@@ -80,9 +87,6 @@ public class TelaPartida extends AppCompatActivity {
 
 
 
-        List<String> list = new ArrayList<String>();
-        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, list);
-        spinner.setAdapter(adapter);
 
 
 
@@ -90,12 +94,12 @@ public class TelaPartida extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 String string = dataSnapshot.getValue(String.class);
-                if(string.equals("Visitante" ) || string.equals(txtSuaEquipe.getText().toString())){
+                if(string.equals("Visitante" )){
 
                 }else {
                     adapter.add(string);
                     adapter.notifyDataSetChanged();
-                    Toast.makeText(getBaseContext(), txtSuaEquipe.getText().toString(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(TelaPartida.this, txtSuaEquipe.getText(), Toast.LENGTH_LONG).show();
 
                 }
             }
