@@ -37,7 +37,7 @@ public class TelaPartida extends AppCompatActivity {
     private DatabaseReference fbconfig;
     private Spinner spinner;
     private int teste;
-    //private String message;
+    private String sedtDataPartida,sedtGolsSeutime,sedtGolsTimeAdv;
     private Partidas partidas;
     private Button btnConfirmaPartida;
 
@@ -62,6 +62,7 @@ public class TelaPartida extends AppCompatActivity {
         List<String> list = new ArrayList<String>();
         final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, list);
         spinner.setAdapter(adapter);
+
 
 
         final Query acharUsuario = fbconfig.child("Usuários").orderByChild("email").equalTo(user.getEmail());
@@ -142,9 +143,18 @@ btnConfirmaPartida.setOnClickListener(new View.OnClickListener() {
         referenciaFireBase.child("Contador Partida").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                teste = Integer.parseInt(String.valueOf(dataSnapshot.getValue()));
-                partidas.setId(teste);
-                partidas.salvar();
+                sedtDataPartida = edtDataPartida.getText().toString();
+                sedtGolsSeutime = edtGolsSeutime.getText().toString();
+                sedtGolsTimeAdv = edtGolsTimeAdv.getText().toString();
+
+                if(sedtDataPartida.isEmpty()== false && sedtGolsTimeAdv.isEmpty()== false && sedtGolsSeutime.isEmpty() == false){
+                    teste = Integer.parseInt(String.valueOf(dataSnapshot.getValue()));
+                    partidas.setId(teste);
+                    partidas.salvar();
+                }
+                else{
+                    Toast.makeText(TelaPartida.this, "Nenhum campo pode estar vazio", Toast.LENGTH_LONG).show();
+                }
             }
 
             @Override
