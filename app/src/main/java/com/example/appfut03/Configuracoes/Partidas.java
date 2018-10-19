@@ -71,21 +71,14 @@ public class Partidas {
         this.juizPartida = juizPartida;
     }
 
-    public static int getId() {
+    public int getId() {
         return id;
     }
 
-    public static void setId(int id) {
-        Partidas.id = id;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public static int getId1() {
-        return id1;
-    }
-
-    public static void setId1(int id1) {
-        Partidas.id1 = id1;
-    }
 
     public String getNomeTime1() {
         return nomeTime1;

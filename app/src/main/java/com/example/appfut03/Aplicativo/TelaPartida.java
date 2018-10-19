@@ -36,7 +36,7 @@ public class TelaPartida extends AppCompatActivity {
     private FirebaseAuth autentic;
     private DatabaseReference fbconfig;
     private Spinner spinner;
-    private int teste;
+    private int teste,idU;
     private String sedtDataPartida,sedtGolsSeutime,sedtGolsTimeAdv;
     private Partidas partidas;
     private Button btnConfirmaPartida;
@@ -100,7 +100,7 @@ public class TelaPartida extends AppCompatActivity {
                 }else {
                     adapter.add(string);
                     adapter.notifyDataSetChanged();
-                    Toast.makeText(TelaPartida.this, txtSuaEquipe.getText(), Toast.LENGTH_LONG).show();
+                   // Toast.makeText(TelaPartida.this, txtSuaEquipe.getText(), Toast.LENGTH_LONG).show();
 
                 }
             }
@@ -139,6 +139,8 @@ btnConfirmaPartida.setOnClickListener(new View.OnClickListener() {
         partidas.setGolsTime1(edtGolsSeutime.getText().toString());
         partidas.setGolsTime2(edtGolsTimeAdv.getText().toString());
 
+
+
         DatabaseReference referenciaFireBase = Firebaseconfig.getFirebaseConfig();
         referenciaFireBase.child("Contador Partida").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -162,6 +164,30 @@ btnConfirmaPartida.setOnClickListener(new View.OnClickListener() {
 
             }
         });
+
+        final Query setar = fbconfig.child("Usuários").orderByChild("email").equalTo(user.getEmail());
+        setar.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot messageSnapshot: dataSnapshot.getChildren()) {
+                    String message = (String) messageSnapshot.child("id").getValue().toString();
+                    String vitorias123 = (String) messageSnapshot.child("vitorias").getValue().toString();
+
+                    int y = Integer.parseInt(vitorias123)+1;
+                    // adapter.remove(message);
+                    fbconfig.child("Usuários").child(message).child("vitorias").setValue(y);
+                    Toast.makeText(TelaPartida.this, message, Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
 
 
 
