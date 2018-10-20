@@ -139,22 +139,21 @@ btnConfirmaPartida.setOnClickListener(new View.OnClickListener() {
         partidas.setGolsTime1(edtGolsSeutime.getText().toString());
         partidas.setGolsTime2(edtGolsTimeAdv.getText().toString());
 
-
+        sedtDataPartida = edtDataPartida.getText().toString();
+        sedtGolsSeutime = edtGolsSeutime.getText().toString();
+        sedtGolsTimeAdv = edtGolsTimeAdv.getText().toString();
 
         DatabaseReference referenciaFireBase = Firebaseconfig.getFirebaseConfig();
         referenciaFireBase.child("Contador Partida").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                sedtDataPartida = edtDataPartida.getText().toString();
-                sedtGolsSeutime = edtGolsSeutime.getText().toString();
-                sedtGolsTimeAdv = edtGolsTimeAdv.getText().toString();
 
-                if(sedtDataPartida.isEmpty()== false && sedtGolsTimeAdv.isEmpty()== false && sedtGolsSeutime.isEmpty() == false){
+
+                if (sedtDataPartida.isEmpty() == false && sedtGolsTimeAdv.isEmpty() == false && sedtGolsSeutime.isEmpty() == false) {
                     teste = Integer.parseInt(String.valueOf(dataSnapshot.getValue()));
                     partidas.setId(teste);
                     partidas.salvar();
-                }
-                else{
+                } else {
                     Toast.makeText(TelaPartida.this, "Nenhum campo pode estar vazio", Toast.LENGTH_LONG).show();
                 }
             }
@@ -165,18 +164,21 @@ btnConfirmaPartida.setOnClickListener(new View.OnClickListener() {
             }
         });
 
-        final Query setar = fbconfig.child("Usuários").orderByChild("email").equalTo(user.getEmail());
-        setar.addListenerForSingleValueEvent(new ValueEventListener() {
+        if (Integer.parseInt(sedtGolsSeutime) > Integer.parseInt(sedtGolsTimeAdv)) {
+
+
+        final Query adicionarVitoriaMeuTime = fbconfig.child("Usuários").orderByChild("email").equalTo(user.getEmail());
+        adicionarVitoriaMeuTime.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot messageSnapshot: dataSnapshot.getChildren()) {
+                for (DataSnapshot messageSnapshot : dataSnapshot.getChildren()) {
                     String message = (String) messageSnapshot.child("id").getValue().toString();
                     String vitorias123 = (String) messageSnapshot.child("vitorias").getValue().toString();
 
-                    int y = Integer.parseInt(vitorias123)+1;
+                    int y = Integer.parseInt(vitorias123) + 1;
                     // adapter.remove(message);
                     fbconfig.child("Usuários").child(message).child("vitorias").setValue(y);
-                    Toast.makeText(TelaPartida.this, message, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(TelaPartida.this, message, Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -188,7 +190,134 @@ btnConfirmaPartida.setOnClickListener(new View.OnClickListener() {
             }
         });
 
+            final Query adicionarDerrotaTimeAdv = fbconfig.child("Usuários").orderByChild("time").equalTo(spinner.getSelectedItem().toString());
+            adicionarDerrotaTimeAdv.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot messageSnapshot : dataSnapshot.getChildren()) {
+                        String message = (String) messageSnapshot.child("id").getValue().toString();
+                        String derrotas123 = (String) messageSnapshot.child("derrotas").getValue().toString();
 
+                        int y = Integer.parseInt(derrotas123) + 1;
+                        // adapter.remove(message);
+                        fbconfig.child("Usuários").child(message).child("derrotas").setValue(y);
+                        //Toast.makeText(TelaPartida.this, message, Toast.LENGTH_SHORT).show();
+
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+
+
+
+    } else if (Integer.parseInt(sedtGolsSeutime) < Integer.parseInt(sedtGolsTimeAdv)){
+
+
+            final Query adicionarVitoriaTimeAdv = fbconfig.child("Usuários").orderByChild("time").equalTo(spinner.getSelectedItem().toString());
+            adicionarVitoriaTimeAdv.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot messageSnapshot : dataSnapshot.getChildren()) {
+                        String message = (String) messageSnapshot.child("id").getValue().toString();
+                        String vitorias123 = (String) messageSnapshot.child("vitorias").getValue().toString();
+
+                        int y = Integer.parseInt(vitorias123) + 1;
+                        // adapter.remove(message);
+                        fbconfig.child("Usuários").child(message).child("vitorias").setValue(y);
+                        //Toast.makeText(TelaPartida.this, message, Toast.LENGTH_SHORT).show();
+
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+            final Query adicionarDerrotaMeuTime = fbconfig.child("Usuários").orderByChild("email").equalTo(user.getEmail());
+            adicionarDerrotaMeuTime.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot messageSnapshot : dataSnapshot.getChildren()) {
+                        String message = (String) messageSnapshot.child("id").getValue().toString();
+                        String derrotas123 = (String) messageSnapshot.child("derrotas").getValue().toString();
+
+                        int y = Integer.parseInt(derrotas123) + 1;
+                        // adapter.remove(message);
+                        fbconfig.child("Usuários").child(message).child("derrotas").setValue(y);
+                        //Toast.makeText(TelaPartida.this, message, Toast.LENGTH_SHORT).show();
+
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+
+
+
+        } else if (Integer.parseInt(sedtGolsSeutime) == Integer.parseInt(sedtGolsTimeAdv)){
+
+            final Query adicionarEmpateTimeAdv = fbconfig.child("Usuários").orderByChild("time").equalTo(spinner.getSelectedItem().toString());
+            adicionarEmpateTimeAdv.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot messageSnapshot : dataSnapshot.getChildren()) {
+                        String message = (String) messageSnapshot.child("id").getValue().toString();
+                        String vitorias123 = (String) messageSnapshot.child("empates").getValue().toString();
+
+                        int y = Integer.parseInt(vitorias123) + 1;
+                        // adapter.remove(message);
+                        fbconfig.child("Usuários").child(message).child("empates").setValue(y);
+                        //Toast.makeText(TelaPartida.this, message, Toast.LENGTH_SHORT).show();
+
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+            final Query adicionarEmpateMeuTime = fbconfig.child("Usuários").orderByChild("email").equalTo(user.getEmail());
+            adicionarEmpateMeuTime.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot messageSnapshot : dataSnapshot.getChildren()) {
+                        String message = (String) messageSnapshot.child("id").getValue().toString();
+                        String derrotas123 = (String) messageSnapshot.child("empates").getValue().toString();
+
+                        int y = Integer.parseInt(derrotas123) + 1;
+                        // adapter.remove(message);
+                        fbconfig.child("Usuários").child(message).child("empates").setValue(y);
+                        //Toast.makeText(TelaPartida.this, message, Toast.LENGTH_SHORT).show();
+
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+
+        }
 
 
     }
