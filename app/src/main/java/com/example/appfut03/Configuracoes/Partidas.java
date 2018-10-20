@@ -19,6 +19,7 @@ public class Partidas {
     private String golsTime2;
     private String juizPartida;
     private String dataPartida;
+    private boolean confirmacaoTime2 = false;
 
     public Partidas() {
     }
@@ -49,6 +50,7 @@ public class Partidas {
         hashMapPartida.put("nome_time_2",getNomeTime2());
         hashMapPartida.put("gols_time_1",getGolsTime1());
         hashMapPartida.put("gols_time_2",getGolsTime2());
+        hashMapPartida.put("confirmacaoTime2",isConfirmacaoTime2());
        // hashMapPartida.put("juiz",getJuizPartida());
         hashMapPartida.put("data",getDataPartida());
 
@@ -110,5 +112,13 @@ public class Partidas {
 
     public void setGolsTime2(String golsTime2) {
         this.golsTime2 = golsTime2;
+    }
+
+    public boolean isConfirmacaoTime2() {
+        return confirmacaoTime2;
+    }
+
+    public void setConfirmacaoTime2(boolean confirmacaoTime2) {
+        this.confirmacaoTime2 = confirmacaoTime2;
     }
 }
