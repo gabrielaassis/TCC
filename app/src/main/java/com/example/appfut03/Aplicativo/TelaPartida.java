@@ -32,7 +32,7 @@ import java.util.List;
 public class TelaPartida extends AppCompatActivity {
 
     private TextView txtSuaEquipe;
-    private EditText edtDataPartida,edtGolsSeutime,edtGolsTimeAdv;
+    private EditText edtDataPartida,edtGolsSeutime,edtGolsTimeAdv,edtEmailJuiz;
     private FirebaseAuth autentic;
     private DatabaseReference fbconfig;
     private Spinner spinner;
@@ -52,6 +52,7 @@ public class TelaPartida extends AppCompatActivity {
         edtDataPartida = (EditText) findViewById(R.id.edtDataPartida);
         edtGolsSeutime = (EditText) findViewById(R.id.edtGolSeuTime);
         edtGolsTimeAdv = (EditText) findViewById(R.id.edtGolsTimeAdv);
+        edtEmailJuiz = (EditText) findViewById(R.id.edtEmailJuiz);
 
 
         fbconfig = Firebaseconfig.getFirebaseConfig();
@@ -153,6 +154,7 @@ btnConfirmaPartida.setOnClickListener(new View.OnClickListener() {
                     teste = Integer.parseInt(String.valueOf(dataSnapshot.getValue()));
                     partidas.setId(teste);
                     partidas.salvar();
+                    Toast.makeText(getApplicationContext(), "Partida Registrada com Sucesso.", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(TelaPartida.this, "Nenhum campo pode estar vazio", Toast.LENGTH_LONG).show();
                 }
@@ -319,6 +321,11 @@ btnConfirmaPartida.setOnClickListener(new View.OnClickListener() {
 
         }
 
+        edtDataPartida.setText("");
+        edtGolsSeutime.setText("");
+        edtGolsTimeAdv.setText("");
+        edtEmailJuiz.setText("");
+        //Toast.makeText(getApplicationContext(), "Partida Registrada com Sucesso.", Toast.LENGTH_SHORT).show();
 
     }
 });
