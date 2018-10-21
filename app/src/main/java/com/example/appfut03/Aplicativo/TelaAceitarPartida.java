@@ -81,16 +81,12 @@ public class TelaAceitarPartida extends AppCompatActivity {
                         @Override
                         public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                             String confirmacaoTime2 = dataSnapshot.child("confirmacaoTime2").getValue().toString();
+                            String teste = dataSnapshot.child("id").getValue().toString();
                             if (confirmacaoTime2.equals("false")) {
 
                             String string = dataSnapshot.child("id").getValue().toString();
                             adapter.add(string);
                             adapter.notifyDataSetChanged();
-                            } else{
-                                spinner.setVisibility(View.INVISIBLE);
-                                TxtView.setVisibility(View.VISIBLE);
-                                TxtView.setText("Não Há partidas para confirmar.");
-                                confirmarPartidas.setVisibility(View.INVISIBLE);
                             }
                         }
 
@@ -130,7 +126,9 @@ public class TelaAceitarPartida extends AppCompatActivity {
         confirmarPartidas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String spinnerAtual = spinner.getSelectedItem().toString();
+
                 fbconfig.child("Partida").child(spinnerAtual).child("confirmacaoTime2").setValue(true);
                 Toast.makeText(getApplicationContext(), "Partida id: "+spinnerAtual+" confirmada com sucesso!" , Toast.LENGTH_SHORT).show();
                 adapter.remove(spinnerAtual);
